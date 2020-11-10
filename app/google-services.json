@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "993962692728",
+    "firebase_url": "https://jss-updates.firebaseio.com",
+    "project_id": "jss-updates",
+    "storage_bucket": "jss-updates.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993962692728:android:cbe2a2eabbcd33636c5d8d",
+        "android_client_info": {
+          "package_name": "com.saurabh.jssupdates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993962692728-in5rk733u1hc0gct7ifhbfpq0afsef86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saurabh.jssupdates",
+            "certificate_hash": "0bac0126c0d573ca3a0c8c8009ea134e9e396186"
+          }
+        },
+        {
+          "client_id": "993962692728-prq72u0bmdp2u4jg0hn2midm96lc6ukn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvarYwFLOrdI51L_CK2e8JP8JZEi0yG_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993962692728-prq72u0bmdp2u4jg0hn2midm96lc6ukn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
