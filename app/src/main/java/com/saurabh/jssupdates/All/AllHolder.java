@@ -9,7 +9,7 @@ import com.saurabh.jssupdates.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AllHolder extends RecyclerView.ViewHolder {
+public class AllHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public LinearLayout mContainer;
     public TextView mSender;
     public TextView mDepartment;
@@ -26,6 +26,11 @@ public class AllHolder extends RecyclerView.ViewHolder {
         mDepartment = itemView.findViewById(R.id.department);
         mDateAndTime = itemView.findViewById(R.id.dateAndTime);
         mMessage = itemView.findViewById(R.id.message);
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }
