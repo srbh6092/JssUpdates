@@ -6,15 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center|left"
-        android:textSize="25dp"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
         android:background="@color/purple_700"
-        android:textColor="@color/white"
-        android:text="   Me"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:background="@color/purple_700"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="   Me"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@color/purple_700"
+            android:text="Logout"
+            android:id="@+id/logout"
+            />
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

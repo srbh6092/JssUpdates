@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JSSUpdates">
         <activity android:name=".AddActivity"></activity>
-        <activity android:name=".RegisterFacultyActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterStudentActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ChooseLoginRegisterActivity">
             <intent-filter>

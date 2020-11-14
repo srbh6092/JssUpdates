@@ -15,14 +15,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.security.CodeSigner;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterFacultyActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText mName, mId, mEmail, mPassword, mConfirmPassword;
-    private RadioGroup mBranch, mDesignation;
+    private RadioGroup mDepartment, mDesignation;
     private Button mRegister;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
@@ -31,7 +30,7 @@ public class RegisterFacultyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_faculty);
+        setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthStateListener = firebaseAuth -> {
@@ -39,7 +38,7 @@ public class RegisterFacultyActivity extends AppCompatActivity {
             final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if(user!=null)//if a user is already logged in
             {
-                Intent intent = new Intent(RegisterFacultyActivity.this,MainActivity.class);//Going to main page
+                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);//Going to main page
                 startActivity(intent);
                 finish();
                 return;
@@ -52,51 +51,50 @@ public class RegisterFacultyActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);//initializing password for input
         mConfirmPassword = (EditText) findViewById(R.id.confirmPassword);//initializing password one more time to confirm for input
 
-        mBranch = (RadioGroup) findViewById(R.id.branch);//initializing branch for input
+        mDepartment = (RadioGroup) findViewById(R.id.department);//initializing branch for input
         mDesignation = (RadioGroup) findViewById(R.id.designation);//initializing designation for input
 
         mRegister = findViewById(R.id.register);
         mRegister.setOnClickListener(v -> {
 
-            final RadioButton mRadioBranch = (RadioButton) findViewById(mBranch.getCheckedRadioButtonId());//initializing checked branch for input
+            final RadioButton mRadioDepartment = (RadioButton) findViewById(mDepartment.getCheckedRadioButtonId());//initializing checked branch for input
             final RadioButton mRadioDesignation = (RadioButton) findViewById(mDesignation.getCheckedRadioButtonId());//initializing checked designation for input
             final String email = mEmail.getText().toString();//fetching email from input
             final String password = mPassword.getText().toString();//fetching password from input
             final String name = mName.getText().toString();//fetching name from input
             final String id = mId.getText().toString();//fetching name from input
             final String confirmPassword = mConfirmPassword.getText().toString();//fetching password one more time to confirm from input
-            final String branch, designation;
+            final String department, designation;
 
             if(password.equals(confirmPassword)) {
-                if (mRadioBranch.getText() == null||mRadioDesignation.getText() == null)//if radio groups are empty
+                if (mRadioDepartment.getText() == null||mRadioDesignation.getText() == null)//if radio groups are empty
                     return;
                 else
                 {
-                    branch = mRadioBranch.getText().toString();
+                    department = mRadioDepartment.getText().toString();
                     designation = mRadioDesignation.getText().toString();
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterFacultyActivity.this, task -> {
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, task -> {
                     if (!task.isSuccessful())//if an error occurs like.. user exists!
-                        Toast.makeText(RegisterFacultyActivity.this, "Registration Error!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Registration Error!", Toast.LENGTH_SHORT).show();
                     else {
                         final String userID = mAuth.getCurrentUser().getUid();
-                        DatabaseReference currentUserDB = FirebaseDatabase.getInstance().getReference().child("Users").child("Faculty").child(branch).child(designation).child(userID);
-                        Map userInfo = new HashMap<>();
-                        userInfo.put("ID", id);
-                        userInfo.put("Department", branch);
-                        userInfo.put("Designation", designation);
-                        userInfo.put("Name", name);
-                        userInfo.put("Email", email);
-                        currentUserDB.updateChildren(userInfo);//Uploading info to the database
+                        DatabaseReference currentUserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+                        Map userFacultyInfo = new HashMap<>();
+                        userFacultyInfo.put("ID", id);
+                        userFacultyInfo.put("Department", department);
+                        userFacultyInfo.put("Designation", designation);
+                        userFacultyInfo.put("Name", name);
+                        currentUserDB.updateChildren(userFacultyInfo);//Uploading info to the database
 
                     }
                 });
             }
             else if(!password.equals(confirmPassword))//if password doesn't match
-                Toast.makeText(RegisterFacultyActivity.this, "Password don't match!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Password don't match!", Toast.LENGTH_SHORT).show();
             else if(email==null||password==null||id==null||name==null||confirmPassword==null)//if any field is empty
-                Toast.makeText(RegisterFacultyActivity.this, "Fill every detail!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Fill every detail!", Toast.LENGTH_SHORT).show();
 
         });
 

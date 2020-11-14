@@ -16,8 +16,7 @@ public class ChooseLoginRegisterActivity extends AppCompatActivity {
 
 
         Button mLogin = (Button)findViewById(R.id.login);
-        Button mRegisterStudent = (Button)findViewById(R.id.registerStudent);
-        Button mRegisterFaculty = (Button)findViewById(R.id.registerFaculty);
+        Button mRegister = (Button)findViewById(R.id.register);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,18 +26,10 @@ public class ChooseLoginRegisterActivity extends AppCompatActivity {
                 return;
             }
         });
-        mRegisterStudent.setOnClickListener(new View.OnClickListener() {
+        mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChooseLoginRegisterActivity.this, RegisterStudentActivity.class);//Going to register page
-                startActivity(intent);
-                return;
-            }
-        });
-        mRegisterFaculty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ChooseLoginRegisterActivity.this, RegisterFacultyActivity.class);//Going to register page
+                Intent intent = new Intent(ChooseLoginRegisterActivity.this, RegisterActivity.class);//Going to register page
                 startActivity(intent);
                 return;
             }
