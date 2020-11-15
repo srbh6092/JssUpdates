@@ -1,11 +1,11 @@
-package com.saurabh.jssupdates.All;
+package com.saurabh.jssupdates;
 
-public class AllObject {
+public class NoticeObject {
     private String message;
     private  String sender;
     private  String department;
     private String dateAndTime;
-    public AllObject(String message, String sender, String department, String dateAndTime)
+    public NoticeObject(String message, String sender, String department, String dateAndTime)
     {
         this.message = message;
         this.sender = sender;

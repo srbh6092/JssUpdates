@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +15,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.saurabh.jssupdates.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -66,14 +64,14 @@ public class AddActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
         mUpload = findViewById(R.id.upload);
         mUpload.setOnClickListener(v -> {
-            String key = FirebaseDatabase.getInstance().getReference().child("Notices").child("All").push().getKey();
-            DatabaseReference noticeUserDB =  FirebaseDatabase.getInstance().getReference().child("Notices").child("All").child(key);
+            String key = FirebaseDatabase.getInstance().getReference().child("Notices").push().getKey();
+            mCurrentUserDB.child("Uploads").child(key).setValue(true);
+            DatabaseReference noticeUserDB =  FirebaseDatabase.getInstance().getReference().child("Notices").child(key);
             Map msgInfo = new HashMap();
             msgInfo.put("Sender ID",currentUser);
             msgInfo.put("Sender",mName.getText());
@@ -86,9 +84,11 @@ public class AddActivity extends AppCompatActivity {
         });
 
     }
+
     private String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
+
 }

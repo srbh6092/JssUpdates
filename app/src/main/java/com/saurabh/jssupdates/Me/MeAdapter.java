@@ -1,4 +1,4 @@
-package com.saurabh.jssupdates.All;
+package com.saurabh.jssupdates.Me;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,13 +15,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AllAdapter extends RecyclerView.Adapter<NoticeHolder> {
+public class MeAdapter extends RecyclerView.Adapter<NoticeHolder>{
 
-    private List<NoticeObject> allList;
+    private List<NoticeObject> meList;
     private Context context;
 
-    public AllAdapter(List<NoticeObject> allList, Context context) {
-        this.allList = allList;
+    public MeAdapter(List<NoticeObject> meList, Context context) {
+        this.meList = meList;
         this.context = context;
     }
 
@@ -37,16 +37,16 @@ public class AllAdapter extends RecyclerView.Adapter<NoticeHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NoticeHolder holder, int position) {
-        holder.mSender.setText(allList.get(position).getSender());//putting sender on the item holder
-        holder.mDepartment.setText(allList.get(position).getDepartment());//putting department on the item holder
-        holder.mDateAndTime.setText(allList.get(position).getDateAndTime());//putting dat and time of upload on the item holder
-        holder.mMessage.setText(allList.get(position).getMessage());//putting the message on the item holder
+        holder.mSender.setText(meList.get(position).getSender());//putting sender on the item holder
+        holder.mDepartment.setText(meList.get(position).getDepartment());//putting department on the item holder
+        holder.mDateAndTime.setText(meList.get(position).getDateAndTime());//putting dat and time of upload on the item holder
+        holder.mMessage.setText(meList.get(position).getMessage());//putting the message on the item holder
 
     }
 
     @Override
     public int getItemCount() {
-        Log.e("Item", String.valueOf(allList.size()));
-        return allList.size();//returning the size of adapter
+        Log.e("Me Item", String.valueOf(meList.size()));
+        return meList.size();//returning the size of adapter
     }
 }
