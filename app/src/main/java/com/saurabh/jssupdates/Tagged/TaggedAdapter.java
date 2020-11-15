@@ -1,4 +1,4 @@
-package com.saurabh.jssupdates.Me;
+package com.saurabh.jssupdates.Tagged;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,20 +15,20 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MeAdapter extends RecyclerView.Adapter<NoticeHolder>{
+public class TaggedAdapter extends RecyclerView.Adapter<NoticeHolder> {
 
-    private List<NoticeObject> meList;
+    private List<NoticeObject> taggedList;
     private Context context;
 
-    public MeAdapter(List<NoticeObject> meList, Context context) {
-        this.meList = meList;
+    public TaggedAdapter(List<NoticeObject> taggedList, Context context) {
+        this.taggedList = taggedList;
         this.context = context;
     }
 
     @NonNull
     @Override
     public NoticeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_notice, null, false);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_notice, null, false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutView.setLayoutParams(lp);
         NoticeHolder rcv = new NoticeHolder(layoutView);
@@ -37,16 +37,16 @@ public class MeAdapter extends RecyclerView.Adapter<NoticeHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull NoticeHolder holder, int position) {
-        holder.mSender.setText(meList.get(position).getSender());//putting sender on the item holder
-        holder.mDepartment.setText(meList.get(position).getDepartment());//putting department on the item holder
-        holder.mDateAndTime.setText(meList.get(position).getDateAndTime());//putting dat and time of upload on the item holder
-        holder.mMessage.setText(meList.get(position).getMessage());//putting the message on the item holder
+        holder.mSender.setText(taggedList.get(position).getSender());//putting sender on the item holder
+        holder.mDepartment.setText(taggedList.get(position).getDepartment());//putting department on the item holder
+        holder.mDateAndTime.setText(taggedList.get(position).getDateAndTime());//putting dat and time of upload on the item holder
+        holder.mMessage.setText(taggedList.get(position).getMessage());//putting the message on the item holder
 
     }
 
     @Override
     public int getItemCount() {
-        Log.e("Me Item", String.valueOf(meList.size()));
-        return meList.size();//returning the size of adapter
+        Log.e("tagged", String.valueOf(taggedList.size()));
+        return taggedList.size();//returning the size of adapter
     }
 }

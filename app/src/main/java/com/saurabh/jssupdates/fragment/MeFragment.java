@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.saurabh.jssupdates.AddActivity;
 import com.saurabh.jssupdates.All.AllAdapter;
 import com.saurabh.jssupdates.ChooseLoginRegisterActivity;
+import com.saurabh.jssupdates.Me.MeAdapter;
 import com.saurabh.jssupdates.NoticeObject;
 import com.saurabh.jssupdates.R;
 
@@ -66,7 +67,7 @@ public class MeFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);//setting linear layout to recyclerView
-        mMeAdapter = new AllAdapter(getDataSet(),getContext());//Creating an adapter
+        mMeAdapter = new MeAdapter(getDataSet(),getContext());//Creating an adapter
         mRecyclerView.setAdapter(mMeAdapter);//putting adapter in recyclerView
 
         return view;
