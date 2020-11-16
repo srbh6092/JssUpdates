@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <TextView
@@ -12,8 +13,8 @@
         android:gravity="center|left"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:background="@color/purple_700"
-        android:textColor="@color/white"
+        android:background="#9934108A"
+        android:textColor="#C3A4FD"
         android:text="   Tagged"/>
 
     <androidx.core.widget.NestedScrollView
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:padding="5dp"
             android:id="@+id/recyclerView">
 
         </androidx.recyclerview.widget.RecyclerView>

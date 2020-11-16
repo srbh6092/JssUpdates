@@ -46,6 +46,8 @@ public class TaggedFragment extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
+        ((LinearLayoutManager) mLayoutManager).setReverseLayout(true);
+        ((LinearLayoutManager) mLayoutManager).setStackFromEnd(true);
         mRecyclerView.setLayoutManager(mLayoutManager);//setting linear layout to recyclerView
         mTaggedAdapter = new TaggedAdapter(getDataSet(),getContext());//Creating an adapter
         mRecyclerView.setAdapter(mTaggedAdapter);//putting adapter in recyclerView

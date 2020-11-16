@@ -42,6 +42,8 @@ public class AllFragment extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
+        ((LinearLayoutManager) mLayoutManager).setReverseLayout(true);
+        ((LinearLayoutManager) mLayoutManager).setStackFromEnd(true);
         mRecyclerView.setLayoutManager(mLayoutManager);//setting linear layout to recyclerView
         mAllAdapter = new AllAdapter(getDataSet(),getContext());//Creating an adapter
         mRecyclerView.setAdapter(mAllAdapter);//putting adapter in recyclerView

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:gravity="center"
     tools:context=".ChooseLoginRegisterActivity">
 
@@ -13,25 +14,26 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="30dp"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/logowhite"/>
 
-        <Button
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:text="Login"
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
+            android:background="@drawable/login"
             android:layout_marginVertical="10sp"
             android:textStyle="bold"
             android:id="@+id/login"/>
 
-        <Button
-            android:layout_width="230dp"
-            android:layout_height="40dp"
-            android:text="Register"
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
+            android:background="@drawable/register"
             android:layout_marginVertical="10sp"
             android:textStyle="bold"
             android:id="@+id/register"/>

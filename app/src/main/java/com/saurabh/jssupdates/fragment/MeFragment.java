@@ -7,8 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.saurabh.jssupdates.AddActivity;
-import com.saurabh.jssupdates.All.AllAdapter;
 import com.saurabh.jssupdates.ChooseLoginRegisterActivity;
 import com.saurabh.jssupdates.Me.MeAdapter;
 import com.saurabh.jssupdates.NoticeObject;
@@ -47,13 +47,13 @@ public class MeFragment extends Fragment {
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_me,container,false);
 
-        FloatingActionButton mAdd = (FloatingActionButton) view.findViewById(R.id.add);
+        Button mAdd = (Button) view.findViewById(R.id.add);
         mAdd.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), AddActivity.class);//going to add notice page
             startActivity(intent);
         });
 
-        Button mLogout = (Button)view.findViewById(R.id.logout);
+        ImageButton mLogout = (ImageButton)view.findViewById(R.id.logout);
         mLogout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();//Signing out
             Intent intent = new Intent(getContext(), ChooseLoginRegisterActivity.class);//Setting up to restart the app
@@ -66,6 +66,8 @@ public class MeFragment extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
+        ((LinearLayoutManager) mLayoutManager).setReverseLayout(true);
+        ((LinearLayoutManager) mLayoutManager).setStackFromEnd(true);
         mRecyclerView.setLayoutManager(mLayoutManager);//setting linear layout to recyclerView
         mMeAdapter = new MeAdapter(getDataSet(),getContext());//Creating an adapter
         mRecyclerView.setAdapter(mMeAdapter);//putting adapter in recyclerView

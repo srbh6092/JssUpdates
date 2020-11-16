@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText mName, mId, mEmail, mPassword, mConfirmPassword;
     private RadioGroup mDepartment, mDesignation;
-    private Button mRegister;
+    private ImageButton mRegister;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
